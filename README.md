@@ -1,6 +1,39 @@
 # MediLabProject
-Projeto de teste do Wesley Sieiro Takatsu de Araujo
+Projeto de teste do Wesley Sieiro Takatsu de Araujo  
+![Takatsu's Projects](./documentacao_imagens/takatsu-projects.png)
 
+  
+
+## Tecnologias utilizadas:  
+PHP, HTML, CSS, Javascript, Postgres  
+Laravel, Docker, Docker-compose, Bootstrap, Jquery  
+ORM Eloquent, Migrations, UUID, Middlewares  
+Sanctum para autenticação via token no HEADER  
+Padrão MVC, com model Person ligado ao User por chave estrangeira.  
+Blade, JQuery, Datatables, Ajax
+  
+Sessões são utilizadas para manter o login do usuário via Web.  
+Via API usa o token em todas as requisições.  
+  
+O banco de dados é persistido em ./sail-pgsql e precisam de permissão para alteração.  
+
+  
+
+Na migration os dados JSON são carregados no banco.  
+Os usuários carregam seu nome em minúsculo, sem espaços, seguidos de @teste.com.  
+Ex: Anonimo 1 -> anonimo1@teste.com  
+  
+A senha é 12345 em todos.  
+A senha é em HASH.  
+Os IDs de user e de person são do tipo UUID.  
+  
+### Rodar as migrations
+```
+sail artisan migrate
+```
+
+
+![DER](./documentacao_imagens/der.jpeg)
 
 ## Instalação do ambiente de desenvolvimento
 ### Instalação de algumas dependências
@@ -126,31 +159,7 @@ Por exemplo, você pode usar sail up em vez de ./vendor/bin/sail up.
 Lembre-se de que qualquer alteração feita no arquivo de configuração do shell só terá efeito na sessão atual e nas futuras sessões do terminal após a atualização da configuração do shell.  
   
 
-- [DATABASE DIAGRAM](https://dbdiagram.io/)
 
-
-Tecnologias utilizadas:  
-PHP, HTML, CSS, Javascript, Postgres  
-Laravel, Docker, Docker-compose, Bootstrap, Jquery  
-ORM Eloquent, Migrations, UUID, Middlewares  
-Sanctum para autenticação via token no HEADER  
-  
-Sessões são utilizadas para manter o login do usuário via Web.  
-Via API usa o token em todas as requisições.  
-  
-O banco de dados é persistido em ./sail-pgsql e precisam de permissão para alteração.  
-
-  
-
-Na migration os dados JSON são carregados no banco.  
-Os usuários carregam seu nome em minúsculo, sem espaços, seguidos de @teste.com.  
-Ex: Anonimo 1 -> anonimo1@teste.com  
-  
-A senha é 12345 em todos.  
-A senha é em HASH.  
-Os IDs de user e de person são do tipo UUID.  
-  
-sail artisan migrate  
   
   
 Rotas de API:  
