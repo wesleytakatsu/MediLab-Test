@@ -22,7 +22,7 @@ O banco de dados é persistido em ./sail-pgsql e precisam de permissão para alt
 O diretório ./storage precisa de permissão para rodar o Laravel  
 
   
-
+## Informações de uso:  
 Na migration os dados JSON são carregados no banco.  
 Os usuários carregam seu nome em minúsculo, sem espaços, seguidos de @teste.com.  
 Ex: Anonimo 1 -> anonimo1@teste.com  
