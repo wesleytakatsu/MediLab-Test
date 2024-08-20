@@ -17,7 +17,9 @@ Foram criadas rotas Web e de APi
 __Sessões são utilizadas para manter o login do usuário via Web.__  
 __Via API usa o token em todas as requisições.__  
   
+## IMPORTANTE:  
 O banco de dados é persistido em ./sail-pgsql e precisam de permissão para alteração.  
+O diretório ./storage precisa de permissão para rodar o Laravel  
 
   
 
