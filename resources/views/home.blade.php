@@ -39,7 +39,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div>
-                <img src="{{ asset('images/logo-anamnese.png') }}" alt="Logo">
+                <img id="sidelogo" src="{{ asset('images/logo-anamnese.png') }}" alt="Logo">
                 @if (!Auth::check())
                 <br />
                     <button class="btn bg-dark text-white btn-sm button-auth"
