@@ -5,6 +5,10 @@ Projeto de teste do Wesley Sieiro Takatsu de Araujo
 ## Projeto rodando em testes:
 [Teste o projeto rodando](http://62.169.26.126/)
 
+## Objetivo:
+O objetivo do projeto é aplicar diversas tecnologias utilizadas no mercado em um micro projeto para que possa ser avaliada a capacidade de aplicação das mesmas.  
+Cada tecnologia foi aplicada de forma bem minimalista.  
+
 ## Tecnologias utilizadas:  
 PHP, HTML, CSS, Javascript, Postgres  
 Laravel, Docker, Docker-compose, Bootstrap, Jquery  
