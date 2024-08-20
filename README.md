@@ -11,7 +11,7 @@ Laravel, Docker, Docker-compose, Bootstrap, Jquery
 ORM Eloquent, Migrations, UUID, Middlewares  
 Sanctum para autenticação via token no HEADER  
 Padrão MVC, com model Person ligado ao User por chave estrangeira.  
-Blade, JQuery, Datatables, Ajax
+Blade, JQuery, Datatables, Ajax  
 Foram criadas rotas Web e de APi  
 
 __Sessões são utilizadas para manter o login do usuário via Web.__  
