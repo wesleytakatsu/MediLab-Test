@@ -2,7 +2,8 @@
 Projeto de teste do Wesley Sieiro Takatsu de Araujo  
 ![Takatsu's Projects](./documentacao_imagens/takatsu-projects.png)
 
-  
+## Projeto rodando em testes:
+[Teste o projeto rodando](http://62.169.26.126/)
 
 ## Tecnologias utilizadas:  
 PHP, HTML, CSS, Javascript, Postgres  
@@ -134,7 +135,11 @@ php -r "unlink('composer-setup.php');"
 sudo apt-get install composer
 ```
 
-## 
+## Após instalar as dependências:
+No diretório do projeto baixe todos os pacotes:  
+```
+composer install
+```
 
 ### Executar o Sail diretamente
 Abra o arquivo de configuração do seu shell.
@@ -158,6 +163,9 @@ Agora, você deve ser capaz de usar o comando sail diretamente no terminal Linux
 Por exemplo, você pode usar sail up em vez de ./vendor/bin/sail up.
 
 Lembre-se de que qualquer alteração feita no arquivo de configuração do shell só terá efeito na sessão atual e nas futuras sessões do terminal após a atualização da configuração do shell.  
+
+
+
   
 
 
