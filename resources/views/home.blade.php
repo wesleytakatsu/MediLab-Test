@@ -19,6 +19,7 @@
         <div>
             <img src="{{ asset('images/logo-anamnese.png') }}" alt="Logo">
             @if (!Auth::check())
+            <br />
                 <button class="btn bg-dark text-white btn-sm button-auth"
                     onclick="window.location.href='{{ route('login') }}'" style="margin-top: 20px;">Entrar</button>
             @else
