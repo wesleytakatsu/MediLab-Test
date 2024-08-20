@@ -13,6 +13,9 @@ body {
     /* background-color: #c7c7c7; */
 }
 
+#back-button {
+    margin-bottom: 20px;
+}
 
 .sidebar {
     display: flex;

@@ -119,7 +119,7 @@
                 </table>
             </div>
             
-            <a href="{{ route('home') }}" class="btn btn-primary">Voltar</a>
+            <a id="back-button" href="{{ route('home') }}" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 
