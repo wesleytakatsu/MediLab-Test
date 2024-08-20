@@ -11,9 +11,10 @@ ORM Eloquent, Migrations, UUID, Middlewares
 Sanctum para autenticação via token no HEADER  
 Padrão MVC, com model Person ligado ao User por chave estrangeira.  
 Blade, JQuery, Datatables, Ajax
-  
-Sessões são utilizadas para manter o login do usuário via Web.  
-Via API usa o token em todas as requisições.  
+Foram criadas rotas Web e de APi  
+
+__Sessões são utilizadas para manter o login do usuário via Web.__  
+__Via API usa o token em todas as requisições.__  
   
 O banco de dados é persistido em ./sail-pgsql e precisam de permissão para alteração.  
 
@@ -162,7 +163,7 @@ Lembre-se de que qualquer alteração feita no arquivo de configuração do shel
 
   
   
-Rotas de API:  
+## Rotas de API:  
 Corpo em JSON  
 O token de autenticação pelo HEADER  
 
@@ -183,4 +184,3 @@ Store Person + User: POST {todas as informações de user e person}
 Autenticação:  
 Login: POST http://127.0.0.1/api/login {"email", "password", "device_name"}  
 Teste Login: POST http://127.0.0.1/api/isloged -> HEADER: {Authorization: Bearer [token]}  
-  

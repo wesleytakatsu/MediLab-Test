@@ -29,8 +29,24 @@ class PersonController extends Controller
                 $query->whereDate('data', $request->dateFilter);
             }
 
-            if ($request->has('tipoExameFilter') && !empty($request->dateFilter)) {
-                $query->whereDate('tipoExame', $request->dateFilter);
+            if ($request->has('tipoExameFilter') && !empty($request->tipoExameFilter)) {
+                $query->where('tipoExame', $request->tipoExameFilter);
+            }
+
+            if ($request->has('modalidadeFilter') && !empty($request->modalidadeFilter)) {
+                $query->where('modalidade', $request->modalidadeFilter);
+            }
+
+            if ($request->has('searchBar') && !empty($request->searchBar)) {
+                $query->where(function ($query) use ($request) {
+                    $query->where('patientID', 'like', '%' . $request->searchBar . '%')
+                        ->orWhere('nome', 'like', '%' . $request->searchBar . '%')
+                        ->orWhere('numAcesso', 'like', '%' . $request->searchBar . '%')
+                        ->orWhere('tipoExame', 'like', '%' . $request->searchBar . '%')
+                        ->orWhere('modalidade', 'like', '%' . $request->searchBar . '%')
+                        ->orWhere('data', 'like', '%' . $request->searchBar . '%');
+                });
+               
             }
 
             return Datatables::of($query)->make(true);

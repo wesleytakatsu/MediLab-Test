@@ -5,58 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Exames Médicos</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-    <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
         rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-secondary">
-
-    <div class="d-flex corpoflex">
-        <!-- Sidebar -->
-        <div class="sidebar">
+<body>
+    <!-- Topbar -->
+    <div class="topbar">
+        <div>
             <img src="{{ asset('images/logo-anamnese.png') }}" alt="Logo">
-            {{-- se não estiver logado mostra um link para /login --}}
             @if (!Auth::check())
                 <button class="btn bg-dark text-white btn-sm button-auth"
-                    onclick="window.location.href='{{ route('login') }}'"  style="margin-top: 20px;">Entrar</button>
+                    onclick="window.location.href='{{ route('login') }}'" style="margin-top: 20px;">Entrar</button>
             @else
-                <p style="margin-top: 20px;">Bem vindo(a), <span class="text-info">{{ Auth::user()->person->nome }}</span></p>
-                {{-- mostra um botão para /logout bootstrap 1 de largura auth()->logout()--}}
+                <p style="margin-top: 20px;">Bem vindo(a), <span
+                        class="text-info">{{ Auth::user()->person->nome }}</span></p>
                 <button class="btn bg-dark text-white btn-sm button-auth"
                     onclick="window.location.href='{{ route('logout') }}'" style="margin-top: 20px;">Sair</button>
             @endif
+        </div>
+        <div>
+            <img src="{{ asset('images/logo-medilab.png') }}" alt="LogoC" id="logoC">
+        </div>
+    </div>
+    <div class="d-flex corpoflex">
+
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div>
+                <img src="{{ asset('images/logo-anamnese.png') }}" alt="Logo">
+                @if (!Auth::check())
+                    <button class="btn bg-dark text-white btn-sm button-auth"
+                        onclick="window.location.href='{{ route('login') }}'" style="margin-top: 20px;">Entrar</button>
+                @else
+                    <p style="margin-top: 20px;">Bem vindo(a), <span
+                            class="text-info">{{ Auth::user()->person->nome }}</span></p>
+                    <button class="btn bg-dark text-white btn-sm button-auth"
+                        onclick="window.location.href='{{ route('logout') }}'" style="margin-top: 20px;">Sair</button>
+                @endif
+            </div>
+            <div>
+                <img src="{{ asset('images/logo-medilab.png') }}" alt="LogoB" id="logoB">
+            </div>
         </div>
 
         <!-- Main Content -->
         <div class="container">
             <h2 class="my-4">Título</h2>
-            <div class="table-responsive table-wrapper" style="margin-top: 20px;">
+
+            <div class="table-responsive table-wrapper">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <input type="date" class="form-control" id="dateFilter" placeholder="YYYY-MM-DD">
                     </div>
 
 
-                    <div class="col-md-2 input-group">
+                    <div class="col-md-3 input-group">
                         <select class="form-control" id="modalidadeFilter">
-                            <option selected>Escolha a modalidade</option>
-                            <option value="1">Modalidade 1</option>
-                            <option value="2">Modalidade 2</option>
-                            <option value="3">Modalidade 3</option>
+                            <option value="" selected>Modalidade</option>
+                            <option value="CR">CR</option>
+                            <option value="CT">CT</option>
+                            <option value="MR">MR</option>
                         </select>
 
                     </div>
 
-                    <div class="col-md-2 input-group">
+                    <div class="col-md-3 input-group">
                         <select class="form-control" id="tipoExameFilter">
-                            <option selected>Escolha o filtro</option>
+                            <option value="" selected>Filtro Geral</option>
                             <option value="MAMO">MAMO</option>
                             <option value="RX ANTEBRACO AP E PERFIL">RX ANTEBRACO AP E PERFIL</option>
                             <option value="CRANIO SEQUENCIAL ADULT">CRANIO SEQUENCIAL ADULT</option>
@@ -78,16 +99,16 @@
                 </div>
 
 
-                <table id="examTable" class="table table-striped table-bordered" style="margin-top: 20px;">
+                <table id="examTable" class="table table-striped table-sm table-bordered">
                     <thead>
                         <tr>
                             <th>ID Paciente</th>
                             <th>Paciente</th>
                             <th>Número</th>
-                            <th>Tipo de Exame</th>
+                            <th id="col-tipoexame">Tipo de Exame</th>
                             <th>Modalidade</th>
                             <th>Data</th>
-                            <th>Visualização</th>
+                            <th id="col-visualizacao">Visualização</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +116,8 @@
                     </tbody>
                 </table>
             </div>
+            
+            <a href="{{ route('home') }}" class="btn btn-primary">Voltar</a>
         </div>
     </div>
 

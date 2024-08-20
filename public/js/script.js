@@ -5,9 +5,11 @@ $(document).ready(function () {
         serverSide: true,
         ajax: {
             url: '/peopleDataTable',
-            data: function(d) {
+            data: function (d) {
                 d.dateFilter = $('#dateFilter').val();
                 d.tipoExameFilter = $('#tipoExameFilter').val();
+                d.modalidadeFilter = $('#modalidadeFilter').val();
+                d.searchBar = $('#searchBar').val();
             }
         },
         columns: [
@@ -16,39 +18,57 @@ $(document).ready(function () {
             { data: 'numAcesso' },
             { data: 'tipoExame' },
             { data: 'modalidade' },
-            { data: 'data' },
+            {
+                data: 'data',
+                render: function (data, type, row) {
+                    if (data) {
+                        var date = new Date(data);
+                        var day = String(date.getDate()).padStart(2, '0');
+                        var month = String(date.getMonth() + 1).padStart(2, '0'); // Mês em JavaScript é 0-11
+                        var year = date.getFullYear();
+
+                        if (type === 'display' || type === 'filter') {
+                            return `${day}/${month}/${year}`;
+                        } else {
+                            return data; // Retorna a data em seu formato original para ordenação
+                        }
+                    }
+                    return data;
+                }
+            },
             {
                 data: null,
                 render: function (data, type, row) {
-                    return '<a href="view.php?id=' + data.id + '" class="btn btn-primary btn-sm">Visualizar</a>';
+                    return '<a href="view.php?id=' + data.id + '" class="primary">Responder questionário</a>';
                 }
             }
         ],
         "language": {
-            "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Portuguese-Brasil.json"
+            "url": "js/Portuguese-Brasil.json",
+            "paginate": {
+                "previous": "teste",
+                "next": "Próximo"
+            },
         },
         "bFilter": false,
         "lengthChange": false,
     });
 
-    // var table = $('#examTable').DataTable();
+
     $("#searchBar").on("keyup", function () {
+        table.search(this.value).draw();
+    });
+
+    $('#dateFilter').on('keyup change', function () {
+        table.draw();
+    });
+
+    $('#tipoExameFilter').on('keyup change', function () {
         table.search($(this).val()).draw();
     });
 
-    $('#dateFilter').on('keyup change', function() {
-        table.draw(); // Redesenha a tabela com o filtro aplicado
-    });
-
-    $('#tipoExameFilter').on('keyup change', function() {
-        table.draw(); // Redesenha a tabela com o filtro aplicado
+    $('#modalidadeFilter').on('keyup change', function () {
+        table.search($(this).val()).draw();
     });
 });
-
-
-// $("#searchBar").on("keyup", function () {
-//     $('#examTable').DataTable().search(
-//         $('#searchBar').val(),
-//     ).draw();
-// });
 

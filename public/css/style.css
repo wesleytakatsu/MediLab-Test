@@ -3,36 +3,59 @@ body {
     min-height: 100vh;
     background-color: #c7c7c7;
 }
+
 .container {
     /* flex: 1; */
-   
+
     /* largura da janela -250px */
     /* width: calc(100% - 250px); */
     height: 100vh;
     /* background-color: #c7c7c7; */
-
 }
+
+
 .sidebar {
+    display: flex;
     height: 100vh;
     width: 250px;
+    min-width: 15%;
     background-color: white;
     color: #343a40;
     padding: 35px;
     flex-direction: column;
     border-right: 3px solid #007bff;
+    margin-bottom: 0;
 }
+
+.topbar {
+    height: 250px;
+    background-color: white;
+    color: #343a40;
+    padding: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px solid #007bff;
+}
+
+
+
 .sidebar h4 {
     margin-top: 20px;
 }
+
 .sidebar p {
     font-size: 14px;
     margin-bottom: 15px;
 }
+
 .table-responsive {
     margin-top: 20px;
 }
+
 .table-wrapper {
-    overflow-x: auto;
+    margin-bottom: 20px;
+    /* overflow-x: auto; */
 }
 
 .button-auth {
@@ -51,3 +74,63 @@ body {
     height: 20px;
     background-color: blue;
 }
+
+#logoB {
+    position: fixed;
+    bottom: 10%;
+    width: 10%;
+}
+
+#examTable {
+    font-size: 0.9em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#col-visualizacao {
+    width: 50px;
+}
+
+#col-tipoexame {
+    width: 150px;
+}
+
+#examTable_wrapper {
+    width: 100%;
+}
+
+@media (max-width: 1250px) {
+    .sidebar {
+        display: none;
+    }
+
+    .topbar {
+        width: 100%;
+    }
+
+    .container {
+        padding: 0;
+        border: 0;
+        margin-left: 10px;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    #logoC {
+        /* position: fixed; */
+        margin-top: 55px;
+        right: 10%;
+        /* width: 10%; */
+    }
+}
+
+@media (min-width: 1250px) {
+    #logoC {
+        display: none;
+    }
+    .topbar {
+        display: none;
+    }
+}
+
